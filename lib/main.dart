@@ -36,7 +36,7 @@ class _FirstPageState extends State<FirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Recruter App'),
+        title: const Text('Recrutment App'),
       ),
       body: Center(
         child: currentIndex == 0 ? Container(
@@ -50,7 +50,7 @@ class _FirstPageState extends State<FirstPage> {
               Text(counter.toString()),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.red, 
+                  foregroundColor: Colors.black, 
                   backgroundColor: Colors.amber
                 ),
                 onPressed: () {
