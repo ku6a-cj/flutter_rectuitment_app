@@ -67,7 +67,8 @@ class _FirstPageState extends State<FirstPage> {
                 },
                 child: const Text('Add to counter'),
                 ),
-              
+                Text(''),
+              Text("My points form last simulation: "+pointsResoult.toString()),
             ],
           ),
         ) : Container(
@@ -97,7 +98,7 @@ class _FirstPageState extends State<FirstPage> {
                 ],
               ),
               SubjectSlider1(),
-              Text(sex + pointsResoult.toString()),
+              Text("Gender: "+sex + " My points:" +pointsResoult.toString()),
               ElevatedButton(onPressed: (){
                 setState(() {
                   sex = sex;
@@ -108,7 +109,7 @@ class _FirstPageState extends State<FirstPage> {
                     pointsResoult=pointsResoult+_subject1SliderValue*0.45*0.5;
                   }
                 });
-              }, child: const Text('OK')),
+              }, child: const Text('Calculate poionts')),
              ]
             )
         )
