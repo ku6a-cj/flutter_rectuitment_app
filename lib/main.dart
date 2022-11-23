@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
-const List<String> list = <String>['Man', 'Woman'];
-String sex = 'no selected';
+const List<String> list = <String>['No selected','Man', 'Woman'];
+String sex = 'No selected';
 double _currentSliderValue = 1;
 double _subject1SliderValue = 1;
 bool Subject1Extended = false;
@@ -54,6 +56,15 @@ class _FirstPageState extends State<FirstPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+                const SizedBox(
+                  height: 400,
+                   child: Expanded(
+                      child: SizedBox(
+                        child: WebView(
+                    initialUrl: "https://www.wojsko-polskie.pl/wat/",
+                    javascriptMode: JavascriptMode.unrestricted,),
+                      )),
+                 ),
               Text(counter.toString()),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -102,6 +113,19 @@ class _FirstPageState extends State<FirstPage> {
               ElevatedButton(onPressed: (){
                 setState(() {
                   sex = sex;
+                  if(sex == 'No selected'){
+                    Fluttertoast.showToast(
+                      msg: "Select your gender!",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Color.fromARGB(255, 75, 70, 70),
+                      textColor: Colors.white,
+                      fontSize: 16.0
+                  );
+                  }
+
+
                   pointsResoult=_currentSliderValue;
                   if(Subject1Extended){
                     pointsResoult=pointsResoult+_subject1SliderValue*0.45;
